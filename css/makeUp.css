@@ -1,0 +1,31 @@
+body {
+    background-color: #d2b48c;
+}
+
+#leftside-navigation {
+    width: 165px;
+}
+
+#leftside-navigation ul {
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+    font-size: 12px;
+}
+
+#leftside-navigation ul a {
+    text-decoration: none;
+    line-height: 25px;
+    color: #ffffff;
+    background: rgb(8, 8, 8);
+    display: block;
+    width: 150px;
+    border-top: 1px solid rgb(255, 255, 255);
+    border-bottom: 1px solid #CCCCCC;
+    padding-left: 15px;
+}
+
+#leftside-navigation ul a:hover {
+    background: #FFCC99;
+}
