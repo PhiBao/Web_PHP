@@ -1,18 +1,34 @@
 <?php
-	$user = $_POST['User'];
-	$pass = $_POST['Pass'];
-	if ($user == "" || $pass == "") {
-		header("Location:login.php");
-	} else {
-		$link = mysqli_connect('localhost', 'root', '') or die('Could not connect: ' . mysqli_error($link));
-		$db_select = mysqli_select_db($link, 'DULIEU');
-		$rs = mysqli_query($link, "SELECT * FROM Admin WHERE username='$user' and password='$pass'");
-		if (mysqli_num_rows($rs) == 0) {
-			header("Location:login.php");
-		} else {
-            header("Location:capnhat.php");
-			mysqli_free_result($rs);
-			mysqli_close($link);
-		}
+session_start();
+if(isset($_SESSION["Username"]))
+	{
+		header("location:logout.php");
+		echo "Xin chao ".$_SESSION["Username"];
+	}
+else if(isset($_POST['submit']))
+
+	{
+			if(empty($_POST['Username']) or empty($_POST['Password']))
+			{
+				$warn = "Bạn phải điền đầy đủ tên đăng nhập và mật khẩu";
+			}
+			else
+			{
+				$link = mysqli_connect('localhost', 'root', '') or die('Could not connect: ' . mysqli_error($link));
+                $db_select = mysqli_select_db($link, 'DULIEU');
+				$user = mysqli_real_escape_string($link, $_POST['Username']);
+				$pass = mysqli_real_escape_string($link, $_POST['Password']);
+				$query = " SELECT * FROM admin where username = '$user' and password = '$pass' ";
+				$rs = mysqli_query($link, $query);
+				if(mysqli_num_rows($rs)==1)
+				{
+					$row = mysqli_fetch_array($rs);
+
+					echo "bạn đã đăng nhập thành công ";
+					$_SESSION["Username"] = $row['username'];
+					header("location: logout.php");
+					echo "Xin chào ".$_SESSION["Username"];
+				}
+			}
 	}
 ?>
