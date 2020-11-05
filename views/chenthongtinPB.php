@@ -4,11 +4,11 @@
 <head>
     <meta charset='utf-8' />
     <title>Chèn thông tin Phòng ban</title>
-    <link rel="stylesheet" href="../css/makeUp.css" />
+    <link rel="stylesheet" href="../public/css/style.css" />
 </head>
 
 <body>
-    <form action='xulichenthongtinPB.php' method='post'>
+    <form action='../controllers/xulichenthongtinPB.php' method='post'>
         <table width="300" align="center" border="center">
             <th colspan="2">Chèn thông tin Phòng ban</th>
             <tr>
@@ -26,7 +26,7 @@
             <tr align="center">
                 <td colspan="2">
                     <form id="form" name="form" method="post"
-                    action='xulichenthongtinPB.php'>
+                    action='../controllers/xulichenthongtinPB.php'>
                         <input type="submit" name="Add" id="Add" value="Add" />
                         <input type="reset" name="Reset" id="Reset" value="Reset" />
                         <input type="button" name="Exit" id="Exit" value="Exit" />

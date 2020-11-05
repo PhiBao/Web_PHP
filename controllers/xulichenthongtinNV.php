@@ -8,5 +8,5 @@ $db_select = mysqli_select_db($link, 'DULIEU');
 $sql = "INSERT INTO NHANVIEN
 VALUES ('$myIDNV','$Hotennv','$myIDPB','$myDiachi')";
 $rs = mysqli_query($link, $sql);
-header("Location:chenthongtinNV.php");
+header("Location:../views/chenthongtinNV.php");
 ?>

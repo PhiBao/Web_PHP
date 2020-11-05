@@ -1,7 +1,6 @@
 <?php
 $myID = $_REQUEST['IDPB'];
-$link = mysqli_connect('localhost', 'root', '') or die('Could not connect: ' . mysqli_error($link));
-$db_select = mysqli_select_db($link, 'DULIEU');
+include "../util/MySQLConnection.php";
 $rs = mysqli_query($link, "SELECT * FROM PhongBan WHERE IDPB='$myID'");
 $row_rs = mysqli_fetch_array($rs, MYSQLI_BOTH)
 ?>
@@ -11,11 +10,11 @@ $row_rs = mysqli_fetch_array($rs, MYSQLI_BOTH)
 <head>
     <meta charset='utf-8' />
     <title>Cập nhật thông tin phòng ban</title>
-    <link rel="stylesheet" href="../css/makeUp.css" />
+    <link rel="stylesheet" href="../public/css/style.css" />
 </head>
 
 <body>
-    <form action='xulicapnhat.php?IDPB=<?php echo $row_rs['IDPB'] ?>' method='post'>
+    <form action='../controllers/xulicapnhat.php?IDPB=<?php echo $row_rs['IDPB'] ?>' method='post'>
         <table width="300" align="center" border="center">
             <tr>
                 <td align="center">IDPB</td>
@@ -27,7 +26,7 @@ $row_rs = mysqli_fetch_array($rs, MYSQLI_BOTH)
             </tr>
             <tr align="center">
                 <td colspan="2">
-                    <form id="form" name="form" method="post" action=action='xulicapnhat.php?IDPB=<?php echo $row_rs['IDPB'] ?>'>
+                    <form id="form" name="form" method="post" action='../controllers/xulicapnhat.php?IDPB=<?php echo $row_rs['IDPB'] ?>'>
                         <input type="submit" name="Ok" id="Ok" value="Ok" />
                         <input type="reset" name="Reset" id="Reset" value="Reset" />
                         <input type="button" name="Exit" id="Exit" value="Exit" />

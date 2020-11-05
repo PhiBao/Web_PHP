@@ -4,7 +4,7 @@
 <head>
 	<meta charset='utf-8' />
 	<title>Xử lí tìm kiếm</title>
-	<link rel="stylesheet" href="../css/makeUp.css" />
+	<link rel="stylesheet" href="../public/css/style.css" />
 </head>
 
 <body>
@@ -12,13 +12,12 @@
 	$manv = $_POST['txtmanv'];
 	$hoten = $_POST['txthoten'];
 	if ($manv == "" || $hoten == "") {
-		header("Location:timkiem.php");
+		header("Location:../views/timkiem.php");
 	} else {
-		$link = mysqli_connect('localhost', 'root', '') or die('Could not connect: ' . mysqli_error($link));
-		$db_select = mysqli_select_db($link, 'DULIEU');
+		include "../util/MySQLConnection.php";
 		$rs = mysqli_query($link, "SELECT * FROM nhanvien WHERE IDNV='$manv' AND Hoten='$hoten'");
 		if (mysqli_num_rows($rs) == 0) {
-			header("Location:timkiem.php");
+			header("Location:../views/timkiem.php");
 		} else {
 			echo '<table border ="1" width="100%">';
 			echo '<caption>Dữ liệu bảng Nhân viên</caption>';
@@ -33,7 +32,7 @@
 		}
 	}
 	?>
-	<form><a href="timkiem.php"><INPUT type="button" value="Back"></a></form>
+	<form><a href="../views/timkiem.php"><INPUT type="button" value="Back"></a></form>
 </body>
 
 </html>

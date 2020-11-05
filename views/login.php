@@ -1,24 +1,27 @@
 <?php
 session_start();
+
 if (isset($_SESSION["Username"])) {
   header("Location:logout.php");
-} else if (isset($_POST['submit'])) {
+};
+
+if (isset($_POST['login'])) {
   if (empty($_POST['Username']) or empty($_POST['Password'])) {
     $warn = "Bạn phải điền đầy đủ tên đăng nhập và mật khẩu";
   } else {
-    $link = mysqli_connect('localhost', 'root', '') or die('Could not connect: ' . mysqli_error($link));
-    $db_select = mysqli_select_db($link, 'DULIEU');
+
+    include "../util/MySQLConnection.php";
     $user = mysqli_real_escape_string($link, $_POST['Username']);
     $pass = mysqli_real_escape_string($link, $_POST['Password']);
-    $query = " SELECT * FROM admin where username = '$user' and password = '$pass' ";
+
+    $query = " SELECT * FROM users where Username = '$user' and Password = '$pass' ";
     $rs = mysqli_query($link, $query);
+
     if (mysqli_num_rows($rs) == 1) {
       $row = mysqli_fetch_array($rs);
+      $_SESSION["Username"] = $row['Username'];
 
-      header("location: logout.php");
-      echo "bạn đã đăng nhập thành công ";
-      $_SESSION["Username"] = $row['username'];
-      echo "Xin chào " . $_SESSION["Username"];
+      echo '<script>parent.window.location.reload(true);</script>';
     }
   }
 }
@@ -28,7 +31,7 @@ if (isset($_SESSION["Username"])) {
 <head>
   <meta charset='utf-8' />
   <title>Đăng nhập</title>
-  <link rel="stylesheet" href="../css/makeUp.css" />
+  <link rel="stylesheet" href="../public/css/style.css" />
 </head>
 
 <body align="center">
@@ -44,7 +47,7 @@ if (isset($_SESSION["Username"])) {
       </tr>
 
       <tr align="center">
-        <td colspan="2"><input type='submit' value='submit' name='submit' /> </td>
+        <td colspan="2"><input type='submit' value='Đăng nhập' name='login' /> </td>
       </tr>
       <tr>
         <td colspan="2">

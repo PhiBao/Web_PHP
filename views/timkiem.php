@@ -4,11 +4,11 @@
 <head>
   <meta charset='utf-8' />
   <title>Tìm kiếm</title>
-  <link rel="stylesheet" href="../css/makeUp.css" />
+  <link rel="stylesheet" href="../public/css/style.css" />
 </head>
 
 <body>
-  <form action='xulitimkiem.php' method='post'>
+  <form action='../controllers/xulitimkiem.php' method='post'>
     <table width='100%' border=0>
       <TR>
         <TD>Mã nhân viên</TD>

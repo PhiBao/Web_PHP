@@ -4,14 +4,13 @@
 <head>
     <meta charset='utf-8' />
     <title>Thông tin Nhân viên phòng ban</title>
-    <link rel="stylesheet" href="../css/makeUp.css" />
+    <link rel="stylesheet" href="../public/css/style.css" />
 </head>
 
 <body>
     <?php
     $mapb = $_REQUEST['IDPB'];
-    $link = mysqli_connect('localhost', 'root', '') or die('Could not connect: ' . mysqli_error($link));
-    $db_select = mysqli_select_db($link, 'DULIEU');
+    include "../util/MySQLConnection.php";
     if ($mapb == "0")
         $rs = mysqli_query($link, "SELECT * FROM nhanvien");
     else {

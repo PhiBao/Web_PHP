@@ -4,15 +4,14 @@
 <head>
     <meta charset='utf-8' />
     <title>Cập nhật</title>
-    <link rel="stylesheet" href="../css/makeUp.css" />
+    <link rel="stylesheet" href="../public/css/style.css" />
 </head>
 
 <body>
     <?php
-    $link = mysqli_connect('localhost', 'root', '') or die('Could not connect: ' . mysqli_error($link));
-    $db_select = mysqli_select_db($link, 'DULIEU');
+    include "../util/MySQLConnection.php";
     $rs = mysqli_query($link, "SELECT * FROM PhongBan");
-    echo '<form action="xulicapnhat.php">';
+    echo '<form action="../controllers/xulicapnhat.php">';
     echo '<table border ="1" width="100%">';
     echo '<caption>Dữ liệu bảng Phòng ban</caption>';
     echo '<TR><TH>Mã phòng ban</TH><TH>Tên phòng ban</TH><TH>Mô tả</TH><TH></TH></TR>';

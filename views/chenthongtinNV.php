@@ -4,11 +4,11 @@
 <head>
     <meta charset='utf-8' />
     <title>Chèn thông tin Nhân viên</title>
-    <link rel="stylesheet" href="../css/makeUp.css" />
+    <link rel="stylesheet" href="../public/css/style.css" />
 </head>
 
 <body>
-    <form action='xulichenthongtinNV.php' method='post'>
+    <form action='../controllers/xulichenthongtinNV.php'' method='post'>
         <table width="300" align="center" border="center">
             <th colspan="2">Chèn thông tin Nhân viên</th>
             <tr>
@@ -30,7 +30,7 @@
             <tr align="center">
                 <td colspan="2">
                     <form id="form" name="form" method="post"
-                    action='xulichenthongtinNV.php'>
+                    action='../controllers/xulichenthongtinNV.php'>
                         <input type="submit" name="Add" id="Add" value="Add" />
                         <input type="reset" name="Reset" id="Reset" value="Reset" />
                         <input type="button" name="Exit" id="Exit" value="Exit" />
