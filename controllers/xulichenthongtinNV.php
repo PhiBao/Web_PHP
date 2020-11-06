@@ -1,12 +1,11 @@
 <?php
-$myIDNV = $_POST['txtIDNV'];
-$Hotennv = $_POST['txtHoten'];
-$myIDPB = $_POST['txtIDPB'];
-$myDiachi = $_POST['txtDiachi'];
-$link = mysqli_connect('localhost', 'root', '') or die('Could not connect: ' . mysqli_error($link));
-$db_select = mysqli_select_db($link, 'DULIEU');
-$sql = "INSERT INTO NHANVIEN
-VALUES ('$myIDNV','$Hotennv','$myIDPB','$myDiachi')";
-$rs = mysqli_query($link, $sql);
-header("Location:../views/chenthongtinNV.php");
+	$myIDNV = $_POST['IDNV'];
+	$Hotennv = $_POST['HoTen'];
+	$myIDPB = $_POST['IDPB'];
+	$myDiachi = $_POST['DiaChi'];
+	include "../util/MySQLConnection.php";
+	$sql = "INSERT INTO NHANVIEN
+	VALUES ('$myIDNV','$Hotennv','$myIDPB','$myDiachi')";
+	$rs = mysqli_query($link, $sql);
+	header("Location:/staff");
 ?>

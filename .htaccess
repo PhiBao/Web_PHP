@@ -1,0 +1,17 @@
+RewriteEngine On
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^\.])$ $1.php [NC,L]
+
+RewriteRule ^home views/login.php
+RewriteRule ^user views/logout.php
+RewriteRule ^staff views/xemthongtinnv.php
+RewriteRule ^department views/xemthongtinPB.php
+RewriteRule ^detail/department/(.*)$ views/xemthongtinNVPB.php?IDPB=$1
+RewriteRule ^search views/timkiem.php
+RewriteRule ^find views/ketquatimkiem.php
+RewriteRule ^insert/staff views/chenthongtinNV.php
+RewriteRule ^append/department views/chenthongtinPB.php
+RewriteRule ^delete views/xoathongtinNV.php
+RewriteRule ^update views/capnhat.php
+RewriteRule ^edit/department/(.*)$ views/form_capnhat_pb.php?IDPB=$1

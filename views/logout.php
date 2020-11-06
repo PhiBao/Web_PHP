@@ -1,7 +1,8 @@
 <?php
 session_start();
+
 if (!isset($_SESSION['Username'])) {
-  header("Location:login.php");
+  header("Location:/home");
 }
 
 if (isset($_POST['logout'])) {
@@ -15,23 +16,24 @@ if (isset($_POST['logout'])) {
 <html>
 <head>
     <meta charset='utf-8' />
-    <title>Đăng xuất</title>
-    <link rel="stylesheet" href="../public/css/style.css" />
+    <title>Chào mừng!</title>
+    <link rel="stylesheet" href="/../public/css/form.css" />
 </head>
 <body>
-
-    <?php 
-        echo "<h2>Xin chào ";   
-        if (isset($_SESSION['Username'])) echo $_SESSION['Username'], "</h2>";
-        echo "<h3>Chào mừng bạn đến với hệ thống quản lí nhân viên!</h3>";
-    ?>
-    <form name="Logout" method="post" align="center">
-        <table>
-            <tr>
-                <td rowspan="5" colspan="5"><input type='submit' name="logout" value="Đăng xuất" align="Right"></td>
-            </tr>
-        </table>
-    </form>
+    <section class="container">
+        <?php include '_boxLeft.php'; ?>
+        <?php include '_boxRight.php'; ?>
+        <?php include '_footer.php'; ?>
+        <section class="main-content">
+        <?php   
+            if (isset($_SESSION['Username']))
+            echo '<h3 class="title">Chào mừng ' . $_SESSION['Username'] . ' đến với hệ thống quản lí nhân viên!</h3>';
+        ?>
+        <form name="logout" method="post">
+            <input id="right" class="button" type='submit' name="logout" value="Đăng xuất">
+        </form>
+        </section>
+    </section>
 </body>
 
-</html>
+</html> 

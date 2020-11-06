@@ -13,6 +13,6 @@
 			}
 		}
 	}
-	header("location:../views/xoathongtinNV.php");
+	header("location:/staff");
 	mysqli_close($link);
 ?>

@@ -1,12 +1,12 @@
 <?php
-$myIDPB = $_POST['txtIDPB'];
-$Tenpb = $_POST['txtTenpb'];
-$myMota = $_POST['txtMota'];
+$myIDPB = $_POST['IDPB'];
+$Tenpb = $_POST['TenPhongBan'];
+$myMota = $_POST['MoTa'];
 
 include "../util/MySQLConnection.php";
 
 $sql = "INSERT INTO PHONGBAN
 VALUES ('$myIDPB','$Tenpb','$myMota')";
 $rs = mysqli_query($link, $sql);
-header("Location:../views/chenthongtinPB.php");
+header("Location:/department");
 ?>
