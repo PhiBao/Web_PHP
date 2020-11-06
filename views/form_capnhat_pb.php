@@ -33,11 +33,11 @@ $row_rs = mysqli_fetch_array($rs, MYSQLI_BOTH)
                     <div class="inner-wrap">
                         <label class="label" for="TenPhongBan">Tên phòng ban:</label> <input
                             type="text" id="TenPhongBan" name="TenPhongBan"
-                            value="<?php $row_rs['Tenpb'] ?>" required />
+                            value="<?php echo $row_rs['Tenpb'] ?>" required />
                     </div>
                     <div class="inner-wrap">
                         <label class="label" for="MoTa">Mô tả:</label> <input type="text"
-                            id="MoTa" name="MoTa" value="<?php $row_rs['Mota'] ?>" required />
+                            id="MoTa" name="MoTa" value="<?php echo $row_rs['Mota'] ?>" required />
                     </div>
                     <input onclick="return confirm('Are you sure you want to edit')"
                         class="button" TYPE='Submit' value='Cập nhật'>
