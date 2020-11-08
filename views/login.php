@@ -42,13 +42,13 @@ if (isset($_POST['login'])) {
           <div>
             <div class="inner-wrap">
                   <label class="label" for="username">Username:</label> <input
-                    type="text" id="username" name="Username" placeholder="usernamme"
+                    type="text" id="username" name="Username" placeholder="captain"
                     required />
                 </div>
               <div class="inner-wrap">
                   <label class="label" for="password">Password:</label> <input
                     type="password" id="password" name="Password"
-                    placeholder="password" required />
+                    placeholder="123" required />
                   <?php
                   echo (isset($warn)) ? $warn : "";
                   ?>
